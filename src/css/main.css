@@ -1,0 +1,117 @@
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+/* FLUX */
+.flux {
+    max-width: 1000px;
+    margin: auto;
+}
+/* HEADER */
+
+.header {
+    background-color: #54A092;
+    color: white;  
+}
+
+.header__content {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    background-image: url(../assets/img/min-logo.svg);
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+.header__links {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    height: 0;
+    padding: 0rem;
+    background-color: #54A092;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    transition: height 0.5s ease; /* Transition pour affichage du menu */    
+}
+
+.header__menu-show { 
+    height: 100vh; 
+    padding: 2rem;   
+}
+
+.header__menu-show .header__link {
+    display: block;
+    padding: 2rem;
+    font-size: 2rem;    
+}
+
+.header__link {
+    display: none;    
+}
+
+.header__burger {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header__burger:hover {
+    cursor: pointer;
+}
+
+.header__burger--bar, .header__burger--bar::before, .header__burger--bar::after {
+    display: block;
+    position: relative;    
+    background-color: white;
+    width: 50px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.header__burger--bar::before, .header__burger--bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.header__burger--bar::before {
+    transform: translateY(-20px);
+}
+
+.header__burger--bar::after {
+    transform: translateY(20px);
+}
+
+@media screen and (min-width:1000px) {
+
+    .header__links {
+        position: static;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;        
+    }    
+
+    .header__burger {
+        display: none;
+    }
+
+    
+}
