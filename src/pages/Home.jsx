@@ -1,34 +1,18 @@
 // Home Page
-import { useState } from "react"
+import Cta from "../components/Cta";
+import Header from "../components/Header"
+import News from "../components/News"
 
 
-function Home() {
-
-    const [showLinks, setShowLinks] = useState(false)
-
-    const handleShowLinks = () => {
-        setShowLinks(!showLinks)
-    }
+function Home() {    
   
   return (
     <>
-    <header className="header">
-        <div className="header__content flux">
-            <div className="header__logo"></div>
-            <ul className={`header__links ${showLinks ? 'header__menu-show' : 'header__menu-hide'}`}>
-                <li className="header__item"><a href="" className="header__link">Accueil</a></li>
-                <li className="header__item"><a href="" className="header__link">Séjour</a></li>
-                <li className="header__item"><a href="" className="header__link">Services</a></li>
-                <li className="header__item"><a href="" className="header__link">A propos</a></li>
-            </ul>
-            <button className="header__burger" onClick={handleShowLinks}>
-                <span className="header__burger--bar"></span>            
-            </button> 
-        </div>        
-    </header>
-    </>
-    
-  )
+    <Header/>
+    <News/>
+    <Cta/>
+    </>    
+  );
 }
 
 export default Home

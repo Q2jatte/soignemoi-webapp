@@ -1,0 +1,20 @@
+.cta {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cta__button {
+    margin: 10px 20px;
+    width: calc(100% - 40px);
+    padding: 1rem;
+    background-color: #54A092;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #323247;    
+}
+
+.cta__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
