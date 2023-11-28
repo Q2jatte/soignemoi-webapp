@@ -8,8 +8,7 @@
 }
 
 .carousel__img {
-    width: 100vw;
-        
+    max-width: 100%;        
 }
 
 .carousel__prev {

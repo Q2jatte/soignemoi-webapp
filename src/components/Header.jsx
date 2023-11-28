@@ -20,7 +20,7 @@ function Header() {
                     <li className="header__item"><a href="" className="header__link">Séjour</a></li>
                     <li className="header__item"><a href="" className="header__link">Services</a></li>
                     <li className="header__item"><a href="" className="header__link">A propos</a></li>
-                    <hr className="header__divider header__display-show"></hr>
+                    <hr className="header__divider"></hr>
                     <li className="header__item header__display-show"><a href="" className="header__link">Se connecter</a></li>
                 </ul>
                 <button className="header__burger" onClick={handleShowLinks}>

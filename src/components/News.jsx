@@ -29,22 +29,18 @@ function News() {
 
         // Nettoyer l'intervalle lorsque le composant est démonté
         return () => clearInterval(intervalId);
-    }, [index, interval]); // Le tableau vide en tant que dépendance signifie que cela s'exécutera une fois après le montage initial
+    }, [index, interval]);
 
-    const handleNextClick = () => {
-        // Incrémenter l'index
+    const handleNextClick = () => {        
         incrementIndex();
     };
 
-    const handlePrevClick = () => {
-        // Incrémenter l'index
+    const handlePrevClick = () => {        
         setIndex((prevIndex) => (prevIndex - 1 + imgList.length) % imgList.length);
-    };
-
-    
+    };    
 
     return (
-        <div className="carousel">            
+        <section className="carousel flux">            
             <div className="carousel__content">            
                 <img className="carousel__img" src={imgList[index]} alt=""/>
                 <div className="carousel__prev" onClick={handlePrevClick}></div>
@@ -59,7 +55,7 @@ function News() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
         
     );
 }
