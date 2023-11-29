@@ -1,6 +1,7 @@
 // Header Navbar
 import '../css/header.css';
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 
 function Header() {  
@@ -21,12 +22,14 @@ function Header() {
                     <li className="header__item"><a href="" className="header__link">Services</a></li>
                     <li className="header__item"><a href="" className="header__link">A propos</a></li>
                     <hr className="header__divider"></hr>
-                    <li className="header__item header__display-show"><a href="" className="header__link">Se connecter</a></li>
-                </ul>
+                    <li className="header__item header__display-show"><Link to="/login">Se connecter</Link></li>
+                </ul>                
                 <button className="header__burger" onClick={handleShowLinks}>
                     <span className="header__burger--bar"></span>            
-                </button>
-                <button className="header__button header__display-hide">Se connecter</button>
+                </button>                
+                <Link to="/login">
+                    <button className="header__button header__display-hide">Se connecter</button>
+                </Link>
             </div>        
         </header>
     );
