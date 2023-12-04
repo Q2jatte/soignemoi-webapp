@@ -18,7 +18,8 @@ function StayForm() {
 
   return (
       <form className="login__form" onSubmit={handleLogin}>
-          <input type="email" className="login__input" id="login__email" name="login__email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />          
+        <select></select>
+        <input type="email" className="login__input" id="login__email" name="login__email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />          
       </form>  
   );
 }
