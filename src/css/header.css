@@ -43,7 +43,7 @@
     padding: 2rem;   
 }
 
-.header__menu-show .header__link {
+.header__menu-show .header__link, .header__menu-show .header__link--auth {
     display: block;
     padding: 2rem;
     font-size: 2rem;    
@@ -51,6 +51,10 @@
 
 .header__link {
     display: none;    
+}
+
+.header__link--auth {
+    display: none;
 }
 
 .header__divider {
@@ -134,7 +138,11 @@
         justify-content: space-between;
         align-items: center;  
         gap: 20px;      
-    }    
+    }  
+    
+    .header__link-auth {
+        display: none;
+    }
 
     .header__burger {
         display: none;
@@ -144,17 +152,18 @@
         display: block; 
         font-size: 2rem;   
     }
+
     .header__menu-show .header__link {        
         padding: 0;
         font-size: 2rem;
     }
+    
     .header__button {
         padding: 1rem;
         background-color: #F5652F;
         border-radius: 10px;
         font-size: 2rem;
         color: white;
-
     }
 
     .header__display-show {

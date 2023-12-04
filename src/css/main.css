@@ -58,7 +58,7 @@ h3 {
 }
 
 .min-button {
-    margin: auto;
+    /*margin: auto;*/
     min-width: 140px;
     min-height: 40px;
     padding: 10px;    

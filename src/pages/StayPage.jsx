@@ -1,17 +1,17 @@
-// Login Page
+// Stay Page : réservation du séjour
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Accessibility from "../components/Accessibility";
-import LoginSignUpForm from "../components/LoginSignUpForm";
+import StayForm from "../components/StayForm";
 
-function Login() {
+function StayPage() {
   
   return (
     <>
       <Header/>
       <main>
-        <LoginSignUpForm/>
+        <StayForm/>
       </main>
       <Footer/>
       <Accessibility/>
@@ -19,4 +19,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default StayPage;
