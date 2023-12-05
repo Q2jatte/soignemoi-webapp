@@ -18,6 +18,7 @@ function StayStep5({ formData, onInputChange }) {
     const handleNextClick = () => {        
        if (isAuthenticated) {
         console.log("enregistrement sur l'API");
+        onInputChange("confirmed");
        } else {
             setMessage(true);  
             setTimeout(() => {
@@ -40,16 +41,17 @@ function StayStep5({ formData, onInputChange }) {
 
     return (
         <>
-            <h2>Confirmez votre séjour</h2>
-            <ul>
+            <h4 className="stay__card-subtitle">Confirmez votre séjour</h4>
+            <ul className="stay__recap">
                 <li>Spécialité : {formData.step1}</li>
                 <li>Votre praticien : {formData.step2}</li>
                 <li>Motif : {formData.step3}</li>
                 <li>Date du séjour : {displayDates(formData.step4)}</li>
             </ul>
-            
-            <button className="min-button button-orange" onClick={handleNextClick}>Confirmer</button>
-            {message ? <p>Pour confirmer votre séjour vous devez etre connecté. Redirection vers la page de login dans 10s</p> : ''}            
+            <div className="stay__footer">
+                <button className="min-button button-orange" onClick={handleNextClick}>Confirmer</button>
+            </div>
+            {message ? <p className="stay__message">Pour confirmer votre séjour vous devez être connecté. Redirection vers la page de connexion dans 10 secondes.</p> : ''}            
         </>
     );
 };

@@ -11,10 +11,10 @@ function StayStep2({ formData, onInputChange }) {
 
     return (
         <>
-            <h2>Choisissez un spécialiste</h2>
-            <ul className="step__list">
+            <h4 className="stay__card-subtitle">Choisissez un spécialiste</h4>
+            <ul className="stay__list">
             {specialists.map((specialist, index) => (
-                <li key={index} className="step__item" onClick={() => onInputChange(specialist)}>
+                <li key={index} className="stay__item" onClick={() => onInputChange(specialist)}>
                 {specialist}
                 </li>
             ))}

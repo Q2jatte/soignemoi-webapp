@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { addDays } from 'date-fns';
-import 'react-datepicker/dist/react-datepicker.css';
 import fr from 'date-fns/locale/fr';
+import chevronRight from '../assets/icon/chevron-right.svg';
+
+import 'react-datepicker/dist/react-datepicker.css';
+import '../css/override_datepicker.css';
 
 
 
@@ -27,7 +30,7 @@ function StayStep4({ formData, onInputChange }) {
 
     return (
         <>
-            <h2>Choisissez les jours d'admission et de sortie</h2>
+            <h4 className="stay__card-subtitle">Choisissez les jours d'admission et de sortie</h4>
             <DatePicker
                 selected={startDate}
                 onChange={onChange}
@@ -40,7 +43,9 @@ function StayStep4({ formData, onInputChange }) {
                 inline
                 locale={fr}
             />
-            <button onClick={handleNextClick}>Suivant</button>
+            <div className="stay__footer">
+                <button className="min-button button-green stay__button" onClick={handleNextClick}><span>Suivant</span><img src={chevronRight} alt="chevron vers la droite"/></button>
+            </div>
         </>
     );
 };

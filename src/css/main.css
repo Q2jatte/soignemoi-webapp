@@ -13,8 +13,12 @@ h2 {
 
 h3 {
     font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;    
+    font-weight: 700;        
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 700;        
 }
 
 .text-light {

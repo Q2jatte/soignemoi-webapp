@@ -1,5 +1,6 @@
 /* STAY Step 3 : commentaire du patient */
 import React, { useState } from 'react';
+import chevronRight from '../assets/icon/chevron-right.svg';
 
 function StayStep3({ formData, onInputChange }) {  
     
@@ -15,13 +16,16 @@ function StayStep3({ formData, onInputChange }) {
 
     return (
         <>
-            <h2>Quelle est le motif de votre séjour ?</h2>
+            <h4 className="stay__card-subtitle">Quelle est le motif de votre séjour ?</h4>
             <input
                 type="text"
+                className="stay__input"
                 value={tempInputValue}
                 onChange={handleInputChange}
             />
-            <button onClick={handleNextClick}>Suivant</button>
+            <div className="stay__footer">
+                <button className="min-button button-green stay__button" onClick={handleNextClick}><span>Suivant</span><img src={chevronRight} alt="chevron vers la droite"/></button>
+            </div>
         </>
     );
 };
