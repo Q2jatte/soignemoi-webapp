@@ -45,7 +45,7 @@ function LoginForm() {
           const loginData = {
               username: email,
               password: password,
-          };
+          };          
 
           const response = await axios.post('http://127.0.0.1:8000/api/login_check', loginData, {
               headers: {
@@ -58,7 +58,10 @@ function LoginForm() {
           setHttpOnlySecureCookie('auth_token', token);
 
           // màj du contexte
-          login({ username: 'test@test.fr' });
+          login({ username: 'test@test.fr' });          
+
+          //redirection 
+          window.history.back();
       
       } catch (error) {
           if (error.response) {

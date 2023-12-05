@@ -29,7 +29,7 @@ function Header() {
                 <div className="header__logo"></div>
                 <ul className={`header__links ${showLinks ? 'header__menu-show' : 'header__menu-hide'}`}>
                     <li className="header__item"><Link to="/" className="header__link">Accueil</Link></li>
-                    <li className="header__item"><a href="" className="header__link">Séjour</a></li>
+                    <li className="header__item"><Link to="/stay" className="header__link">Séjour</Link></li>
                     <li className="header__item"><a href="" className="header__link">Services</a></li>
                     <li className="header__item"><a href="" className="header__link">A propos</a></li>
                     <hr className="header__divider header__display-show"></hr>
