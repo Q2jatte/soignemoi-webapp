@@ -10,12 +10,13 @@ import { AuthProvider } from './contexts/AuthContext';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Profile from './pages/Profile';
+import ProfilePage from './pages/ProfilePage';
 import StayPage from './pages/StayPage';
 import ErrorPage from './pages/Error404';
 
 import './css/_reset.css';
 import './css/main.css';
+import SignupSuccessPage from './pages/SignupSuccessPage';
 
 
 
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile/>,
+    element: <ProfilePage/>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/signup_success",
+    element: <SignupSuccessPage/>,
     errorElement: <ErrorPage />,
   },
   {
