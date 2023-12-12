@@ -157,7 +157,7 @@ function StayForm() {
       <h2 className="stay__title">Plannifiez votre séjour</h2>
       <div className="stay__card">
         <div className="stay__card-header">
-          {currentStep > 1 ? (<button className="stay__nav-button" onClick={() => handleStepChange(-1)}><img src={backArrow}alt="bouton de retour"/></button>) : (<button></button>)}
+          {currentStep > 1 || currentStep < 6? (<button className="stay__nav-button" onClick={() => handleStepChange(-1)}><img src={backArrow}alt="bouton de retour"/></button>) : (<button></button>)}
           <h3 className="stay__card-title">Votre séjour</h3>
           <button className="stay__nav-button"></button>
         </div>
