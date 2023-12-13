@@ -11,6 +11,7 @@ function SignUpForm() {
     // Valeurs du formulaire
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeat, setRepeat] = useState('');
@@ -40,6 +41,7 @@ function SignUpForm() {
             const signupData = {
                 firstName: firstName,
                 lastName: lastName,
+                address: address,
                 email: email,
                 password: password,
                 roles: role,
@@ -81,7 +83,8 @@ function SignUpForm() {
 
         <form className="signup__form" onSubmit={handleSignup}>            
             <input type="text" className="signup__input" id="signup-firstname" name="signup-firstname" placeholder="Prénom" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />            
-            <input type="text" className="signup__input" d="signup-lastname" name="signup-lastname" placeholder="Nom" value={lastName} onChange={(e) => setLastName(e.target.value)} required />                      
+            <input type="text" className="signup__input" id="signup-lastname" name="signup-lastname" placeholder="Nom" value={lastName} onChange={(e) => setLastName(e.target.value)} required />   
+            <input type="text" className="signup__input" id="signup-address" name="signup-address" placeholder="Adresse complète" value={address} onChange={(e) => setAddress(e.target.value)}/>                   
             <input type="email" className="signup__input" id="signup-email" name="signup-email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />            
             <input type="password" className="signup__input" id="signup-password" name="signup-password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)}required />
             <input type="password" className="signup__input" id="signup-repeat" name="signup-repeat" placeholder="Répéter le mot de passe" value={repeat} onChange={(e) => setRepeat(e.target.value)} required />

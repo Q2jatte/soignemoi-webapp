@@ -28,7 +28,8 @@ function LoginForm() {
       secure: false, // TODO true pour https
       httpOnly: true,
       sameSite: 'strict',
-      };
+      domain: '127.0.0.1'
+    };
 
     const formattedCookie = `${cookieName}=${cookieValue}; ${Object.entries(cookieOptions).map(([key, value]) => `${key}=${value}`).join('; ')}`;
     
@@ -52,13 +53,12 @@ function LoginForm() {
               'Content-Type': 'application/json',                         
               },
           });
-          // enregistrement du token
-          console.log('Réponse de la requête de login :', response.data);
+          // enregistrement du token          
           const token = response.data.token;
-          setHttpOnlySecureCookie('auth_token', token);
+          //setHttpOnlySecureCookie('BEARER', token);
 
           // màj du contexte
-          login({ username: 'test@test.fr' });          
+          login({ token: token });         
 
           //redirection 
           window.history.back();

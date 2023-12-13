@@ -36,7 +36,7 @@ function Header() {
                     {isAuthenticated ? (
                         <React.Fragment>
                             <li className="header__item"><Link to="/profile" className="header__link--auth">Mon compte</Link></li>
-                            <li className="header__item"><Link to="/login" className="header__link--auth">Se connecter</Link></li>
+                            <li className="header__item"><span className="header__link--auth" onClick={logout}>Se déconnecter</span></li>
                         </React.Fragment>                  
                     ) : (
                         <li className="header__item"><Link to="/login" className="header__link--auth">Se connecter</Link></li>                    
