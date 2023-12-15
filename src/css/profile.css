@@ -1,0 +1,48 @@
+.profile {
+    padding: 40px 0;
+}
+
+.profile__title {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.profile__item {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.profile__items .future {
+    background-color: #ABEBC6;
+    border-top: solid 3px #82E0AA;
+    border-bottom: solid 3px #82E0AA;
+}
+
+.profile__items .inprogress {
+    background-color: #AED6F1;
+    border-top: solid 3px #85C1E9;
+    border-bottom: solid 3px #85C1E9;
+}
+
+.profile__items .perform {
+    background-color: #CCD1D1;
+    border-top: solid 3px #B2BABB;
+    border-bottom: solid 3px #B2BABB;
+}
+
+/* ECRAN LARGE */
+@media screen and (min-width:1000px) {
+
+    .profile__items .future {        
+        border: solid 3px #82E0AA;        
+    }
+    
+    .profile__items .inprogress {        
+        border: solid 3px #85C1E9;        
+    }
+    
+    .profile__items .perform {       
+        border: solid 3px #B2BABB;
+    }
+
+}

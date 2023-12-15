@@ -1,6 +1,8 @@
 /* Profile : personal data */
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { format } from "date-fns";
+import fr from "date-fns/locale/fr";
 import axios from 'axios';
 
 import '../css/profile.css';
@@ -62,14 +64,21 @@ function Profile() {
         
         switch (status) {
         case 'à venir':
-            return 'green'; // Couleur pour les séjours à venir
+            return 'future'; // Couleur pour les séjours à venir
         case 'en cours':
-            return 'blue'; // Couleur pour les séjours en cours
+            return 'inprogress'; // Couleur pour les séjours en cours
         case 'effectué':
-            return 'gray'; // Couleur pour les séjours passés
+            return 'perform'; // Couleur pour les séjours passés
         default:
             return 'black';
         }
+    };
+
+    // formatage et affichage des dates du séjour
+    const displayDate = (dateString) => {    
+        const date = new Date(dateString);    
+        const formatDate = format(date, "dd MMMM yyyy", { locale: fr });    
+        return formatDate;
     };
 
     return (
@@ -77,14 +86,14 @@ function Profile() {
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <section className="profile flux">
             <h2 className="profile__title">Historque des séjours</h2>
-            <ul className="profile__items"></ul>
+            <ul className="profile__items">
             {stays !== undefined ? (
                 stays && stays.length > 0 ? (
                     stays.map((stay) => (
-                        <li key={stay.id} style={{ color: getStatusColor(stay.entranceDate, stay.dischargeDate) }}>
-                            <p>Séjour {getStayStatus(stay.entranceDate, stay.dischargeDate)}</p>
-                            <p>Admission le : {stay.entranceDate}</p>
-                            <p>Sortie le : {stay.dischargeDate}</p>
+                        <li className={`profile__item ${getStatusColor(stay.entranceDate, stay.dischargeDate)}`} key={stay.id}>
+                            <h3>Séjour {getStayStatus(stay.entranceDate, stay.dischargeDate)}</h3>
+                            <p>Admission le : {displayDate(stay.entranceDate)}</p>
+                            <p>Sortie le : {displayDate(stay.dischargeDate)}</p>
                             <p>Raison du séjour : {stay.reason}</p>
                         </li>
                     ))
@@ -94,6 +103,7 @@ function Profile() {
             ) : (
                 <p>Chargement des données...</p>
             )}
+            </ul>
         </section>
         </>
     );
