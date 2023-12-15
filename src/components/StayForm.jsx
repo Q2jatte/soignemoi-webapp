@@ -30,7 +30,7 @@ function StayForm() {
   const [updated, setUpdated] = useState(false); 
   
   const handleStepChange = (index) => {
-    setCurrentStep(currentStep + index);
+    setCurrentStep(currentStep + index);    
   };
 
   const handleInputChange = (step, value) => {
@@ -48,7 +48,7 @@ function StayForm() {
       setFormData((prevData) => ({
         ...prevData,
         [step]: value,
-      }));
+      }));      
       setUpdated(true); // pour le localstorage
     }
     handleStepChange(1); // cureentStep +1      
@@ -57,8 +57,7 @@ function StayForm() {
   // au montage du composant, on cherche si formData existe
   useEffect(() => {    
     const storedFormData = localStorage.getItem('formData');
-    if (storedFormData) {    
-      console.log("localstorage trouvé");
+    if (storedFormData) {      
       setFormData(prevData => {
         const updatedData = JSON.parse(storedFormData);
   
@@ -66,32 +65,19 @@ function StayForm() {
         const firstEmptyStep = Object.entries(updatedData).find(([step, value]) => !value);
   
         if (firstEmptyStep) {
-          setCurrentStep(Number(firstEmptyStep[0].replace('step', '')));
-          console.log("Currentstep : "+ Number(firstEmptyStep[0].replace('step', '')));
+          setCurrentStep(Number(firstEmptyStep[0].replace('step', '')));          
         }
   
         return updatedData;
-      });
-      /*
-      setFormData(JSON.parse(storedFormData));
-
-      // Trouve le premier "step" vide et mettre à jour currentStep
-      console.log(formData);
-      const firstEmptyStep = Object.entries(formData).find(([step, value]) => !value);
-      console.log("First empty : " + firstEmptyStep);
-
-      if (firstEmptyStep) {
-        setCurrentStep(Number(firstEmptyStep[0].replace('step', '')));
-        console.log("Currentstep : "+ Number(firstEmptyStep[0].replace('step', '')));
-      }*/
+      });      
     }
   }, []);
 
   // Stockage de formData lors du changement de updated
   useEffect(() => {
     if (updated) {
-      // Stockage de formData dans localStorage
-      console.log("localstorage called");
+
+      // Stockage de formData dans localStorage      
       localStorage.setItem('formData', JSON.stringify(formData));
       setUpdated(false);
     }
@@ -113,7 +99,7 @@ function StayForm() {
     case 2:
       currentStepComponent = (
         <StayStep2
-          formData={formData.step2}
+          formData={formData}
           onInputChange={(value) => handleInputChange('step2', value)}
         />
       );
@@ -129,7 +115,7 @@ function StayForm() {
     case 4:
       currentStepComponent = (
         <StayStep4
-          formData={formData.step4}
+          formData={formData}
           onInputChange={(value) => handleInputChange('step4', value)}
         />
       );
@@ -157,7 +143,7 @@ function StayForm() {
       <h2 className="stay__title">Plannifiez votre séjour</h2>
       <div className="stay__card">
         <div className="stay__card-header">
-          {currentStep > 1 || currentStep < 6? (<button className="stay__nav-button" onClick={() => handleStepChange(-1)}><img src={backArrow}alt="bouton de retour"/></button>) : (<button></button>)}
+          {currentStep > 1 && currentStep < 5 ? (<button className="stay__nav-button" onClick={() => handleStepChange(-1)}><img src={backArrow}alt="bouton de retour"/></button>) : (<button></button>)}
           <h3 className="stay__card-title">Votre séjour</h3>
           <button className="stay__nav-button"></button>
         </div>

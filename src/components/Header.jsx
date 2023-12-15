@@ -26,7 +26,7 @@ function Header() {
     return (    
         <header className="header">
             <div className={`header__content flux ${showLinks ? 'header__menu-show' : 'header__menu-hide'}`}>
-                <div className="header__logo"></div>
+                <Link to="/"><div className="header__logo"></div></Link>
                 <ul className={`header__links ${showLinks ? 'header__menu-show' : 'header__menu-hide'}`}>
                     <li className="header__item"><Link to="/" className="header__link">Accueil</Link></li>
                     <li className="header__item"><Link to="/stay" className="header__link">Séjour</Link></li>
