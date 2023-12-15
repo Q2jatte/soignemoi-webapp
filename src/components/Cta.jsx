@@ -27,7 +27,7 @@ function Cta() {
                 </div>            
             </button>
         </a>
-        <Link to="/stay">
+        <Link to="/access">
             <button className="button button-green">
                 <div className="cta__content">
                     <img className="cta__icon" src={localize} alt=""/>
