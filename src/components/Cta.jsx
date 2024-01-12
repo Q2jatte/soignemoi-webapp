@@ -15,7 +15,7 @@ function Cta() {
             <button className="button button-green">
                 <div className="cta__content">
                     <img className="cta__icon" src={calendar} alt=""/>
-                    <h3>Plannifiez<br/>votre séjour</h3>
+                    <h3>Planifiez<br/>votre séjour</h3>
                 </div>            
             </button>
         </Link>
