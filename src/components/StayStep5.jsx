@@ -13,6 +13,21 @@ function StayStep5({ formData, onInputChange }) {
   const { isAuthenticated, token } = useAuth();
 
   const [message, setMessage] = useState(false);
+  // compteur
+  const [remainingTime, setRemainingTime] = useState(10);
+  const startCountdown = () => {
+    for (let i = 10; i >= 0; i--) {
+      setTimeout(() => {
+        if (i === 0) {
+          // Rediriger vers la page de connexion après 10 secondes
+          navigateTo("/login");
+        } else {
+          setRemainingTime(i)
+        }
+      }, (10 - i) * 1000);
+    }
+  };
+
   const [error, setError] = useState(null);
   const navigateTo = useNavigate();
 
@@ -21,10 +36,12 @@ function StayStep5({ formData, onInputChange }) {
       registerStay();      
     } else {
       setMessage(true);
+      startCountdown();
+      /*
       setTimeout(() => {
         // Rediriger vers la page de connexion après 10 secondes
         navigateTo("/login");
-      }, 10_000);
+      }, 10_000);*/
     }
   };
 
@@ -76,7 +93,7 @@ function StayStep5({ formData, onInputChange }) {
       {message ? (
         <p className="stay__message">
           Pour confirmer votre séjour vous devez être connecté. 🔄 Redirection vers
-          la page de connexion dans 10 secondes.
+          la page de connexion dans {remainingTime} secondes.
         </p>
       ) : (
         ""
