@@ -17,6 +17,7 @@ import ProfilePage from './pages/ProfilePage';
 import StayPage from './pages/StayPage';
 import SignupSuccessPage from './pages/SignupSuccessPage';
 import MapPage from './pages/MapPage';
+import LegalDisclaimersPage from './pages/LegalDisclaimersPage';
 import ErrorPage from './pages/Error404';
 
 import './css/_reset.css';
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
     element: <MapPage/>,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/legal",
+    element: <LegalDisclaimersPage/>,
+    errorElement: <ErrorPage />,
+  }
 ]);
 
 function App() {

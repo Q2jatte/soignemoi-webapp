@@ -1,4 +1,5 @@
 /* Footer : pied de page */
+import { Link } from 'react-router-dom';
 
 import '../css/footer.css';
 import facebook from '../assets/icon/facebook.svg';
@@ -24,7 +25,7 @@ function Footer() {
                     <h3 className="green">Liens utiles</h3>
                     <ul className="footer__items">
                         <li className="footer__item">Votre compte</li>
-                        <li className="footer__item">Mentions légales</li>
+                        <li className="footer__item"><Link to="/legal">Mentions légales</Link></li>
                         <li className="footer__item">Aide</li>
                     </ul>
                 </nav>

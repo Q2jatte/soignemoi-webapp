@@ -35,7 +35,19 @@ Make sure you have the following installed before getting started:
     npm install
     ```
     
-4. By default, API requests are sent to http://localhost:8000. If the api-soignemoi is accessible at a different URL, modify the path in the frf.yml file.
+4. Create a environement file .env into the root directory. This project need 4 values :
+
+    ```bash
+    # API root directory
+    VITE_API_ROOT_URL=http://127.0.0.1:8000/api
+    # Google map key
+    VITE_GOOGLE_MAPS_API_KEY=your_map_api_key
+    # Google reCaptcha site key
+    VITE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+    # Google reCaptcha secret key
+    VITE_RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+    ```
+    Copy this code into the .env file and customize the different keys. If you don't have reCAPTCHA keys, it is necessary to comment out line 64 in the src\components\SignUpForm.jsx file and uncomment the following line.
 
 5. Run server
 

@@ -1,5 +1,4 @@
 // Map Page
-console.log(process.env.NODE_ENV);
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Accessibility from "../components/Accessibility";
@@ -8,7 +7,6 @@ import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 // Récupérez votre clé API depuis le fichier .env
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-console.log(import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
 
 // Définissez les coordonnées initiales
 const defaultCenter = { lat: 50.70425796508789, lng: 3.2130157947540283 };
