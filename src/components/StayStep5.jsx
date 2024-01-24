@@ -1,4 +1,4 @@
-/* STAY Step 5 : confirmation du séjour*/
+/* STAY Step 5 : Confirmation du séjour */
 import React, { useState } from "react";
 import axios from 'axios';
 import { format } from "date-fns";
@@ -7,6 +7,7 @@ import fr from "date-fns/locale/fr";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// Composant StayStep5
 function StayStep5({ formData, onInputChange }) {
 
   // Context d'authentification
@@ -37,11 +38,6 @@ function StayStep5({ formData, onInputChange }) {
     } else {
       setMessage(true);
       startCountdown();
-      /*
-      setTimeout(() => {
-        // Rediriger vers la page de connexion après 10 secondes
-        navigateTo("/login");
-      }, 10_000);*/
     }
   };
 
@@ -60,7 +56,7 @@ function StayStep5({ formData, onInputChange }) {
             },                        
         });                      
         onInputChange("confirmed");
-        console.log("enregistrement sur l'API");        
+        console.log("Enregistrement sur l'API réussi");        
     } catch (error) {                
         setError("Erreur lors de l'enregistrement du séjour");
         console.log(error);                    
@@ -77,22 +73,31 @@ function StayStep5({ formData, onInputChange }) {
 
   return (
     <>
+      {/* Affichage du titre de l'étape */}
       <h4 className="stay__card-subtitle">Confirmez votre séjour</h4>
+
+      {/* Affichage des détails du séjour */}
       <ul className="stay__recap">
         <li>Spécialité : {formData.step1[1]}</li>
         <li>Votre praticien : {formData.step2[1]}</li>
         <li>Motif : {formData.step3}</li>
         <li>Date du séjour : du {displayDate(formData.step4[0])} au {displayDate(formData.step4[1])}</li>
       </ul>
+
+      {/* Pied de la carte avec le bouton de confirmation */}
       <div className="stay__footer">
         <button className="min-button button-orange" onClick={handleNextClick}>
           Confirmer
         </button>
       </div>
+
+      {/* Affichage des erreurs s'il y en a */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {/* Affichage du message de redirection vers la page de connexion */}
       {message ? (
         <p className="stay__message">
-          Pour confirmer votre séjour vous devez être connecté. 🔄 Redirection vers
+          Pour confirmer votre séjour, vous devez être connecté. 🔄 Redirection vers
           la page de connexion dans {remainingTime} secondes.
         </p>
       ) : (
@@ -102,4 +107,5 @@ function StayStep5({ formData, onInputChange }) {
   );
 }
 
+// Exportation du composant StayStep5
 export default StayStep5;

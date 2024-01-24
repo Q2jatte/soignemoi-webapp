@@ -1,4 +1,4 @@
-/* Profile : personal data */
+/* Profile : données personnelles */
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { format } from "date-fns";
@@ -8,14 +8,16 @@ import axios from 'axios';
 import '../css/profile.css';
 
 function Profile() {
-    // Auth context
+    // Contexte d'authentification
     const { token } = useAuth();
-    // Stock la réponse à getStays
+    
+    // État pour stocker la réponse de getStays
     const [stays, setStays] = useState(null);
 
+    // État pour gérer les erreurs
     const [error, setError] = useState(null);
     
-    // Appel des data
+    // Appel des données des séjours de l'utilisateur
     useEffect(() => {    
         const getStays = async () => {
             try {                    
@@ -34,7 +36,7 @@ function Profile() {
         getStays();
     }, []);
 
-    // Extraction du cookie
+    // Fonction pour extraire la valeur d'un cookie
     const getCookie = (name) => {
         const cookieValue = document.cookie
         .split('; ')
@@ -43,7 +45,7 @@ function Profile() {
         return cookieValue;
     };
 
-    // Type de séjour(A venir, en cours et effectué)
+    // Fonction pour déterminer le statut du séjour (à venir, en cours, effectué)
     const getStayStatus = (entranceDate, dischargeDate) => {
         const currentDate = new Date();
         const entranceDateObj = new Date(entranceDate);
@@ -58,7 +60,7 @@ function Profile() {
         }
     };
 
-    // Couleurs associées aux 3 types de séjour
+    // Fonction pour déterminer la couleur associée aux 3 types de séjour
     const getStatusColor = (entranceDate, dischargeDate) => {
         const status = getStayStatus(entranceDate, dischargeDate);
         
@@ -74,18 +76,19 @@ function Profile() {
         }
     };
 
-    // formatage et affichage des dates du séjour
+    // Fonction pour formater et afficher les dates des séjours
     const displayDate = (dateString) => {    
         const date = new Date(dateString);    
         const formatDate = format(date, "dd MMMM yyyy", { locale: fr });    
         return formatDate;
     };
 
+    // Rendu du composant
     return (
         <>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <section className="profile flux">
-            <h2 className="profile__title">Historque des séjours</h2>
+            <h2 className="profile__title">Historique des séjours</h2>
             <ul className="profile__items">
             {stays !== undefined ? (
                 stays && stays.length > 0 ? (
@@ -109,4 +112,5 @@ function Profile() {
     );
 }
 
+// Exportation du composant Profile en tant que composant par défaut
 export default Profile;

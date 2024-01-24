@@ -1,13 +1,11 @@
-/* Login Form : authentification des users */
-import React from 'react';
-import { useState, useEffect } from 'react';
+/* Stay Form : Formulaire de planification de séjour */
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-
 import axios from 'axios';
-
 import '../css/stay.css';
 import backArrow from '../assets/icon/back-arrow.svg';
 
+// Importation des composants pour chaque étape du séjour
 import StayStep1 from './StayStep1';
 import StayStep2 from './StayStep2';
 import StayStep3 from './StayStep3';
@@ -15,11 +13,12 @@ import StayStep4 from './StayStep4';
 import StayStep5 from './StayStep5';
 import StayStep6 from './StayStep6';
 
-
+// Fonction principale du composant StayForm
 function StayForm() {  
-
-  // lifting state up
+  // State pour suivre l'étape actuelle
   const [currentStep, setCurrentStep] = useState(1);
+
+  // State pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     step1: '',
     step2: '',
@@ -27,15 +26,19 @@ function StayForm() {
     step4: '',
     step5: '',
   }); 
+
+  // State pour indiquer si les données du formulaire ont été mises à jour
   const [updated, setUpdated] = useState(false); 
-  
+
+  // Fonction pour changer l'étape actuelle
   const handleStepChange = (index) => {
     setCurrentStep(currentStep + index);    
   };
 
+  // Fonction pour gérer le changement de données du formulaire
   const handleInputChange = (step, value) => {
-    if (step === "step5" && value === "confirmed"){ // fin du formulaire
-      // Supprime le localStorage et réinitialise formData
+    // Si la cinquième étape est "confirmed", réinitialise le formulaire
+    if (step === "step5" && value === "confirmed"){ 
       localStorage.removeItem('formData');
       setFormData({
         step1: '',
@@ -45,16 +48,18 @@ function StayForm() {
         step5: '',
       });
     } else {
+      // Met à jour les données du formulaire et indique qu'elles ont été modifiées
       setFormData((prevData) => ({
         ...prevData,
         [step]: value,
       }));      
-      setUpdated(true); // pour le localstorage
+      setUpdated(true);
     }
-    handleStepChange(1); // cureentStep +1      
+    // Passe à l'étape suivante
+    handleStepChange(1);   
   };
 
-  // au montage du composant, on cherche si formData existe
+  // Effet au montage pour charger les données du formulaire depuis le localStorage
   useEffect(() => {    
     const storedFormData = localStorage.getItem('formData');
     if (storedFormData) {      
@@ -73,20 +78,16 @@ function StayForm() {
     }
   }, []);
 
-  // Stockage de formData lors du changement de updated
+  // Effet pour stocker les données du formulaire dans le localStorage lorsqu'elles sont mises à jour
   useEffect(() => {
     if (updated) {
-
-      // Stockage de formData dans localStorage      
       localStorage.setItem('formData', JSON.stringify(formData));
       setUpdated(false);
     }
   }, [updated]);
 
-  // current Step component
-
+  // Composant de l'étape actuelle en fonction de la valeur de currentStep
   let currentStepComponent;
-
   switch (currentStep) {
     case 1:
       currentStepComponent = (
@@ -137,17 +138,25 @@ function StayForm() {
       currentStepComponent = null;
   }
 
-
+  // Rendu du composant
   return (
     <section className="stay flux">
-      <h2 className="stay__title">Plannifiez votre séjour</h2>
+      <h2 className="stay__title">Planifiez votre séjour</h2>
       <div className="stay__card">
         <div className="stay__card-header">
-          {currentStep > 1 && currentStep < 5 ? (<button className="stay__nav-button" onClick={() => handleStepChange(-1)}><img src={backArrow}alt="bouton de retour"/></button>) : (<button></button>)}
+          {/* Affiche un bouton de retour si l'étape actuelle est entre 2 et 4 */}
+          {currentStep > 1 && currentStep < 5 ? (
+            <button className="stay__nav-button" onClick={() => handleStepChange(-1)}>
+              <img src={backArrow} alt="bouton de retour"/>
+            </button>
+          ) : (
+            <button></button>
+          )}
           <h3 className="stay__card-title">Votre séjour</h3>
           <button className="stay__nav-button"></button>
         </div>
         <div className="stay__card-content">
+          {/* Affiche le composant de l'étape actuelle */}
           {currentStepComponent}          
         </div>
       </div>
@@ -155,4 +164,5 @@ function StayForm() {
   );
 }
 
+// Exportation du composant StayForm en tant que composant par défaut
 export default StayForm;
