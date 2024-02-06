@@ -1,0 +1,30 @@
+/* STYLE pour <Accessibility/> */
+
+.accessibility {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    z-index: 4;
+}
+
+.accessibility__button {
+    width: 80px;
+    height: 80px;
+    border: solid 4px #755B51;
+    border-radius: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* ECRAN LARGE */
+@media screen and (min-width:1000px) {
+
+    .accessibility {       
+        left: 40px;
+        transform: none;      
+    }
+}

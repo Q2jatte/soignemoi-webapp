@@ -1,0 +1,36 @@
+.cta {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.cta__content {
+    position: relative;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.cta__icon {
+    position: absolute;
+    left: 0;
+}
+
+/* ECRAN LARGE */
+
+@media screen and (min-width: 1000px) {
+    .cta {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+}

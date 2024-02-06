@@ -1,0 +1,128 @@
+/* LOGINSIGNUP */
+
+.loginSignUp {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSignUp__container {
+    width: 360px;
+    padding: 20px;    
+    border-radius: 10px;
+    box-shadow: 0 16px 16px #999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.loginSignUp__segmented-control {
+    width: calc(100% - 20px);
+    height: 50px;   
+}
+
+.loginSignUp__button {
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+    background-color: #E4E4E4;
+    font-size: 1.25rem;
+    color: #999;
+}
+
+.loginSignUp__button-left {
+    border-radius: 10px 0 0 10px;
+}
+
+.loginSignUp__button-right {
+    border-radius: 0 10px 10px 0;
+}
+
+.loginSignUp__button-active {    
+    background-color: #F5652F;
+    color: white;
+}
+
+
+
+/* LOGIN FORM */
+
+.login__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.login__input {
+    padding: 0 10px;
+    height: 50px;
+    width: calc(100% - 40px);
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+}
+
+/* SIGNUP FORM */
+
+.signup__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.signup__input {
+    padding: 0 10px;
+    height: 50px;
+    width: calc(100% - 40px);
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+}
+
+.signup__group {
+    height: 50px;
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.signup__text {
+    padding: 0 10px 10px 10px;
+    height: 50px;
+}
+
+.signup__checkbox {
+    padding: 0 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+}
+
+.signup__label {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.signup__link {
+    color: cornflowerblue;
+}
+
+/* ECRAN LARGE */
+/*
+@media screen and (min-width:1000px) {
+
+    .loginSignUp__container {
+        min-width: none;
+        max-width: 360px;
+    }
+}*/
+
