@@ -9,6 +9,9 @@ import chevronRight from '../assets/icon/chevron-right.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../css/override_datepicker.css';
 
+// URL de l'API
+const apiUrl = import.meta.env.VITE_API_ROOT_URL;
+
 // Composant StayStep4
 function StayStep4({ formData, onInputChange }) {
 
@@ -29,7 +32,7 @@ function StayStep4({ formData, onInputChange }) {
     useEffect(() => {    
         const getExcludeDate = async () => {
             try {                    
-                const response = await axios.get(`http://127.0.0.1:8000/api/stays/doctor/${formData.step2[0]}`);                    
+                const response = await axios.get(`${apiUrl}/stays/doctor/${formData.step2[0]}`);                    
                 const data = response.data;
                 // Convertir les dates JSON en objets Date
                 const excludeDates = data.map(date => parseISO(date));         

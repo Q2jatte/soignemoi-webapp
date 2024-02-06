@@ -7,6 +7,9 @@ import fr from "date-fns/locale/fr";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// URL de l'API
+const apiUrl = import.meta.env.VITE_API_ROOT_URL;
+
 // Composant StayStep5
 function StayStep5({ formData, onInputChange }) {
 
@@ -50,7 +53,7 @@ function StayStep5({ formData, onInputChange }) {
             doctor: parseInt(formData.step2[0]),            
         };
 
-        const response = await axios.post('http://127.0.0.1:8000/api/stay', stayData, {
+        const response = await axios.post(`${apiUrl}/stay`, stayData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`                       
             },                        

@@ -7,6 +7,9 @@ import axios from 'axios';
 
 import '../css/profile.css';
 
+// URL de l'API
+const apiUrl = import.meta.env.VITE_API_ROOT_URL;
+
 function Profile() {
     // Contexte d'authentification
     const { token } = useAuth();
@@ -21,7 +24,7 @@ function Profile() {
     useEffect(() => {    
         const getStays = async () => {
             try {                    
-                    const response = await axios.get('http://127.0.0.1:8000/api/stays', {
+                    const response = await axios.get(`${apiUrl}/stays`, {
                         headers: {
                             'Authorization': `Bearer ${token.token}`                       
                         },                        

@@ -1,7 +1,5 @@
 /* Stay Form : Formulaire de planification de séjour */
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import axios from 'axios';
 import '../css/stay.css';
 import backArrow from '../assets/icon/back-arrow.svg';
 

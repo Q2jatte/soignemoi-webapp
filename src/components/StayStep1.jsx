@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// URL de l'API
+const apiUrl = import.meta.env.VITE_API_ROOT_URL;
+
 // Composant StayStep1
 function StayStep1({ formData, onInputChange }) {
 
@@ -16,7 +19,7 @@ function StayStep1({ formData, onInputChange }) {
         const getServices = async () => {
             try {
                 // Appel à l'API pour récupérer la liste des services
-                const response = await axios.get('http://127.0.0.1:8000/api/services');                    
+                const response = await axios.get(`${apiUrl}/services`);                    
                 const data = response.data;
 
                 // Transformation des données pour les adapter à l'affichage

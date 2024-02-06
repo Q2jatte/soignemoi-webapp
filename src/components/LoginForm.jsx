@@ -6,6 +6,9 @@ import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import '../css/loginSignUpForm.css';
 
+// URL de l'API
+const apiUrl = import.meta.env.VITE_API_ROOT_URL;
+
 // Définition du composant fonctionnel LoginForm
 function LoginForm() {  
 
@@ -53,15 +56,14 @@ function LoginForm() {
           };          
 
           // Envoi de la requête au serveur pour la vérification des identifiants
-          const response = await axios.post('http://127.0.0.1:8000/api/login_check', loginData, {
+          const response = await axios.post(`${apiUrl}/login_check`, loginData, {
               headers: {
               'Content-Type': 'application/json',                         
               },
           });
 
           // Enregistrement du token JWT
-          const token = response.data.token;
-          //setHttpOnlySecureCookie('BEARER', token);
+          const token = response.data.token;          
 
           // Mise à jour du contexte d'authentification
           login({ token: token });         

@@ -3,12 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
-  Navigate,
+  RouterProvider,  
 } from "react-router-dom";
-
-import dotenv from 'dotenv';
 
 // Importation du contexte d'authentification
 import { AuthProvider } from './contexts/AuthContext';
@@ -82,14 +78,13 @@ const router = createBrowserRouter([
 function App() {
   return (
     <React.StrictMode>
-      {/* Enveloppez votre application avec le contexte d'authentification */}
+      {/* App enveloppée dans le contexte d'authentification */}
       <AuthProvider>
-        {/* Fournissez le router à l'ensemble de l'application */}
+        {/* Router pour l'ensemble de l'app */}
         <RouterProvider router={router} />
       </AuthProvider>
     </React.StrictMode>
   );    
 }
 
-// Montrez le composant principal (App) dans la racine de l'élément avec l'ID 'root'
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

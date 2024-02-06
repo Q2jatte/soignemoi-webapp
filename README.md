@@ -55,7 +55,7 @@ Make sure you have the following installed before getting started:
     npm run dev
     ```
     
-6, Access the web app by following the URL provided in the command prompt.
+6. Access the web app by following the URL provided in the command prompt.
 
     ```bash
     ➜  Local:   http://localhost:5173/
